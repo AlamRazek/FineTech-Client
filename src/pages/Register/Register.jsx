@@ -27,7 +27,7 @@ const Register = () => {
       return;
     } else {
       setError("");
-      createUser(email, password)
+      createUser(email, password, photo, name)
         .then((res) => {
           console.log(res.user);
           notify1(res.user);

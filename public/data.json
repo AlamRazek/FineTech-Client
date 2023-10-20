@@ -1,0 +1,32 @@
+[
+  {
+    "id": 114,
+    "name": "Samsung",
+    "photo": "https://i.ibb.co/DfjHyjy/Samsung-logo.jpg"
+  },
+  {
+    "id": 115,
+    "name": "Nokia",
+    "photo": "https://i.ibb.co/HFyV8Fq/nokia-logo.jpg"
+  },
+  {
+    "id": 116,
+    "name": "Sony",
+    "photo": "https://i.ibb.co/gJ122f8/sony-logo.jpg"
+  },
+  {
+    "id": 117,
+    "name": "Logitech",
+    "photo": "https://i.ibb.co/gJ122f8/sony-logo.jpg"
+  },
+  {
+    "id": 118,
+    "name": "Asus",
+    "photo": "https://i.ibb.co/zhjH72f/asus-logo.jpg"
+  },
+  {
+    "id": 119,
+    "name": "HTC",
+    "photo": "https://i.ibb.co/nR46kYQ/HTC-logo.jpg"
+  }
+]
