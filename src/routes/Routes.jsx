@@ -7,11 +7,14 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import CardDetails from "../pages/Home/cards/CardDetails";
+import Error from "../pages/Error/Error";
+import ProductDetails from "../pages/Home/cards/ProductDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -43,6 +46,16 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.brandNames}`),
+      },
+      {
+        path: "/cardDetails/:brandName/:id",
+        element: (
+          <PrivateRoutes>
+            <ProductDetails></ProductDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
 
       {

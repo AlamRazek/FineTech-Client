@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "./Header";
 import Card from "./cards/Card";
-import Navbar from "../navbar/Navbar";
+
 import Footer from "../Footer/Footer";
 
 const Home = () => {
   const data = useLoaderData();
-  console.log(data);
+
   return (
     <div>
       <Header></Header>

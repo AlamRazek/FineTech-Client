@@ -1,6 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Product = ({ data }) => {
-  const { name, image, brandName, radio, price, shortDescription, rating } =
-    data;
+  const {
+    name,
+    image,
+    brandName,
+    radio,
+    price,
+    shortDescription,
+    rating,
+    _id,
+  } = data;
 
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -16,11 +26,11 @@ const Product = ({ data }) => {
         <p>Price: ${price}</p>
 
         <span className="card-actions justify-start">
-          <button className="btn btn-primary">Details</button>
+          <Link to={`${_id}`}>
+            <button className="btn btn-primary">Details</button>
+          </Link>
 
-          <span className="card-actions ">
-            <button className="btn btn-primary">Update</button>
-          </span>
+          <button className="btn btn-primary">Update</button>
         </span>
       </div>
     </div>
