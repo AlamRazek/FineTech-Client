@@ -57,7 +57,8 @@ const Home = () => {
               <h2 className="card-title">Samsung tab 9</h2>
               <p>
                 Watch netflix on the one of the best super amoled display and
-                can draw with the stylux pen is given with the tab.
+                can draw with the stylux pen is given with the tab also can play
+                games.
               </p>
             </div>
           </div>
