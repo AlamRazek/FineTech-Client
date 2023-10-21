@@ -10,6 +10,7 @@ import CardDetails from "../pages/Home/cards/CardDetails";
 import Error from "../pages/Error/Error";
 import ProductDetails from "../pages/Home/cards/ProductDetails";
 import MyCarts from "../pages/Mycart/MyCarts";
+import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,12 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/cardDetails/:brandNames/updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
+      },
+      {
         path: "/cart/:userEmail",
         element: (
           <PrivateRoutes>
@@ -40,14 +47,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/cart/${params.userEmail}`),
       },
-      // {
-      //   path: "/cart/:userEmail",
-      //   element: (
-      //     <PrivateRoutes>
-      //       <MyCarts></MyCarts>
-      //     </PrivateRoutes>
-      //   ),
-      // },
+
       {
         path: "/cardDetails/:brandNames",
         element: (

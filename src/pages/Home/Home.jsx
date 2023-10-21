@@ -27,7 +27,42 @@ const Home = () => {
         </div>
       </div>
 
-      <div></div>
+      <div>
+        <div>
+          <div className="card card-side bg-base-100 shadow-xl my-4">
+            <figure>
+              <img
+                src="https://i.ibb.co/48tVtgj/sony-xperia-l4.webp"
+                alt="Movie"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Sony</h2>
+              <p>
+                With the best camera lense.Take some great picture with one of
+                the most powerful camera
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="card card-side bg-base-100 shadow-xl my-4">
+            <figure className="max-w-20">
+              <img
+                src="https://i.ibb.co/3kCSGKh/samsung-tab-s9.jpg"
+                alt="Movie"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Samsung tab 9</h2>
+              <p>
+                Watch netflix on the one of the best super amoled display and
+                can draw with the stylux pen is given with the tab.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <Footer></Footer>
     </div>

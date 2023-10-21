@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
   const userEmail = user?.email;
+  console.log(user);
 
   const handleLogOut = () => {
     userLogOut()
@@ -94,7 +95,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <p>{user?.email}</p>
+        <p>{user?.displayName}</p>
         <span>
           {user ? (
             <div className="avatar">

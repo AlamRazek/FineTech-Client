@@ -1,5 +1,62 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const UpdateProduct = () => {
-  const getUpdatedProductData = (e) => {};
+  const updatedProduct = useLoaderData();
+
+  const {
+    name,
+    image,
+    brandName,
+    radio,
+    price,
+    shortDescription,
+    rating,
+    _id,
+  } = updatedProduct;
+
+  const getUpdatedProductData = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const image = form.image.value;
+    const brandName = form.brandName.value;
+    const radio = form.radio.value;
+    const price = form.price.value;
+    const shortDescription = form.shortDescription.value;
+    const rating = form.rating.value;
+    const addedProduct = {
+      name,
+      image,
+      brandName,
+      radio,
+      price,
+      shortDescription,
+      rating,
+    };
+    console.log(addedProduct);
+
+    // send data to server
+    fetch(`http://localhost:5000/products/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addedProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success!",
+            text: "Product updated",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
+  };
 
   return (
     <div>
@@ -16,10 +73,11 @@ const UpdateProduct = () => {
       >
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Name</span>
+            <span className="label-text">name</span>
           </label>
           <input
             type="text"
+            defaultValue={name}
             placeholder="Name"
             name="name"
             className="input input-bordered"
@@ -32,6 +90,7 @@ const UpdateProduct = () => {
           </label>
           <input
             type="text"
+            defaultValue={image}
             placeholder="Image"
             name="image"
             className="input input-bordered"
@@ -45,6 +104,7 @@ const UpdateProduct = () => {
           <input
             type="text"
             placeholder="Brand Name"
+            defaultValue={brandName}
             name="brandName"
             className="input input-bordered"
             required
@@ -58,13 +118,20 @@ const UpdateProduct = () => {
           </label>
           <label className="label cursor-pointer">
             <span className="label-text">Phone</span>
-            <input type="radio" name="radio" value="Phone" className="radio " />
+            <input
+              type="radio"
+              name="radio"
+              defaultValue={radio}
+              value="Phone"
+              className="radio "
+            />
           </label>
           <label className="label cursor-pointer">
             <span className="label-text">Computer</span>
             <input
               type="radio"
               name="radio"
+              defaultValue={radio}
               value="Computer"
               className="radio "
             />
@@ -74,6 +141,7 @@ const UpdateProduct = () => {
             <input
               type="radio"
               name="radio"
+              defaultValue={radio}
               value="Headphone"
               className="radio  "
             />
@@ -86,6 +154,7 @@ const UpdateProduct = () => {
           <input
             type="text"
             placeholder="Price"
+            defaultValue={price}
             name="price"
             className="input input-bordered"
             required
@@ -98,6 +167,7 @@ const UpdateProduct = () => {
           <input
             type="text"
             placeholder="Short description"
+            defaultValue={shortDescription}
             name="shortDescription"
             className="input input-bordered"
             required
@@ -110,6 +180,7 @@ const UpdateProduct = () => {
           <input
             type="number"
             placeholder="Rating"
+            defaultValue={rating}
             name="rating"
             className="input input-bordered"
             min="1"
@@ -118,7 +189,7 @@ const UpdateProduct = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Add Product</button>
+          <button className="btn btn-primary">Update Product</button>
         </div>
       </form>
     </div>
