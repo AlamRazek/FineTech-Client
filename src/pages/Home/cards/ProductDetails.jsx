@@ -63,7 +63,7 @@ const ProductDetails = () => {
             className="btn btn-primary"
             onClick={() => addCartHandler(_id)}
           >
-            Buy Now
+            Add to Cart
           </button>
         </div>
       </div>
