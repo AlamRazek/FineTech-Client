@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
+  const userEmail = user?.email;
 
   const handleLogOut = () => {
     userLogOut()
@@ -41,7 +42,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/mycart"
+          to={`/cart/${userEmail}`}
           style={({ isActive }) => ({
             color: isActive ? "#fff" : "#545e6f",
             background: isActive ? "#7600dc" : "",

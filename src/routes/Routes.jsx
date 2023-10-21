@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import CardDetails from "../pages/Home/cards/CardDetails";
 import Error from "../pages/Error/Error";
 import ProductDetails from "../pages/Home/cards/ProductDetails";
+import MyCarts from "../pages/Mycart/MyCarts";
 
 const router = createBrowserRouter([
   {
@@ -30,13 +31,23 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/mycart",
+        path: "/cart/:userEmail",
         element: (
           <PrivateRoutes>
             <Mycart></Mycart>
           </PrivateRoutes>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/cart/${params.userEmail}`),
       },
+      // {
+      //   path: "/cart/:userEmail",
+      //   element: (
+      //     <PrivateRoutes>
+      //       <MyCarts></MyCarts>
+      //     </PrivateRoutes>
+      //   ),
+      // },
       {
         path: "/cardDetails/:brandNames",
         element: (
